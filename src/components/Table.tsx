@@ -26,7 +26,8 @@ function Table() {
       <thead className='text-uppercase'>
         <tr>
           <th scope="col">user_id</th>
-          <th scope="col">id</th>
+          <th scope="col">email</th>
+          <th scope="col">post_id</th>
           <th scope="col">title</th>
           <th scope="col">body</th>
         </tr>
@@ -37,6 +38,7 @@ function Table() {
             return (
               <tr key={post.id}>
                 <td>{post.userId}</td>
+                <td>email</td>
                 <td>{post.id}</td>
                 <td>{post.title}</td>
                 <td>{post.body}</td>
