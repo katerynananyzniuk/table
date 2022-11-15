@@ -1,7 +1,8 @@
 export interface IPost {
-  postId?: number,
-  id?: number,
-  name: string,
+  id?: string,
+  postId?: string,
+  author: string,
+  title: string,
   email: string,
   body: string,
 }
