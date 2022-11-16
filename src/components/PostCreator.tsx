@@ -13,7 +13,11 @@ type FormInputs = {
   body: string,
 }
 
-function PostCreator() {
+interface PostCreatorProps {
+  onClose: () => void
+}
+
+function PostCreator({onClose}: PostCreatorProps) {
   const navigate = useNavigate()
   const { register, handleSubmit, formState: { errors } } = useForm<FormInputs>({
     defaultValues: {
@@ -38,7 +42,7 @@ function PostCreator() {
       console.log('new post added:', post);
       setLoading(false)
     })
-
+    onClose()
     navigate('/')
   }
 
@@ -135,15 +139,20 @@ function PostCreator() {
         <div className="d-flex justify-content-center">
           { !loading 
               ? <button 
-                  className="btn btn-primary px-4" 
+                  className="btn btn-primary px-4 mx-2" 
                   type='submit'
                 >Add Post</button>
               : <button 
-                  className="btn btn-primary px-4" 
+                  className="btn btn-primary px-4 mx-2" 
                   type='submit'
                   disabled
                 >Add Post</button>
           }
+          <button 
+            className="btn btn-secondary px-4 mx-2" 
+            type='button'
+            onClick={() => onClose()}
+          >Close</button>
         </div>
       </form>
     </div>
