@@ -1,7 +1,6 @@
 import {useForm} from 'react-hook-form'
 import {IPost} from '../models'
 import {useState} from 'react'
-import { useNavigate } from 'react-router-dom'
 
 const emailRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
 
@@ -18,7 +17,6 @@ interface PostCreatorProps {
 }
 
 function PostCreator({onClose}: PostCreatorProps) {
-  const navigate = useNavigate()
   const { register, handleSubmit, formState: { errors } } = useForm<FormInputs>({
     defaultValues: {
       postId: '',
@@ -43,7 +41,6 @@ function PostCreator({onClose}: PostCreatorProps) {
       setLoading(false)
     })
     onClose()
-    navigate('/')
   }
 
   return (

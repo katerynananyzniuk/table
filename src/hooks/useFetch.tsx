@@ -20,24 +20,7 @@ function useFetch(url:string) {
           setLoading(false)
         })
     }, 500)
-  }, [url])
-
-  useEffect(() => {
-    setTimeout(() => {
-        fetch(url)
-        .then(response => {
-          return response.json()
-        })
-        .then(data => {
-          setData(data)
-          setLoading(false)
-        })
-        .catch(error => {
-          setError(error.message)
-          setLoading(false)
-        })
-    }, 500)
-  }, [data])
+  }, [url, data])
 
   return {data, loading, error}
 }

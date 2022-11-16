@@ -7,25 +7,27 @@ interface TableProps {
 
 function Table({posts}: TableProps) {
   return (
-    <table className="table table-hover">
-      <thead className='text-lowercase'>
-        <tr>
-          <th scope="col">#</th>
-          <th scope="col">post number</th>
-          <th scope="col">author</th>
-          <th scope="col">title</th>
-          <th scope="col">email</th>
-          <th scope="col">body</th>
-        </tr>
-      </thead>
-      <tbody>
-        {
-          posts.map(post => {
-            return <Post post={post} key={post.id} />
-          })
-        }
-      </tbody>
-    </table>
+    <div className='table-responsive-lg'>
+      <table className="table table-hover">
+        <thead className='text-lowercase text-capitalize'>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">post number</th>
+            <th scope="col">author</th>
+            <th scope="col">title</th>
+            <th scope="col">email</th>
+            <th scope="col">body</th>
+          </tr>
+        </thead>
+        <tbody>
+          {
+            posts.map((post, index) => {
+              return <Post post={post} key={index} />
+            })
+          }
+        </tbody>
+      </table>
+    </div>
   )
 }
 
