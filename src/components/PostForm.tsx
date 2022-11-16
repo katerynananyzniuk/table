@@ -1,23 +1,14 @@
 import {useForm} from 'react-hook-form'
 import {IPost} from '../models'
 import {useState} from 'react'
+import {emailRegex} from '../emailPattern'
 
-const emailRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-
-type FormInputs = {
-  postId: string,
-  author: string,
-  title: string,
-  email: string,
-  body: string,
-}
-
-interface PostCreatorProps {
+interface PostFormProps {
   onClose: () => void
 }
 
-function PostCreator({onClose}: PostCreatorProps) {
-  const { register, handleSubmit, formState: { errors } } = useForm<FormInputs>({
+function PostForm({onClose}: PostFormProps) {
+  const { register, handleSubmit, formState: { errors } } = useForm<IPost>({
     defaultValues: {
       postId: '',
       author: '',
@@ -44,7 +35,7 @@ function PostCreator({onClose}: PostCreatorProps) {
   }
 
   return (
-    <div className="p-4 bg-light rounded-2 border border-secondary">
+    <div className="p-4 bg-light rounded-2 border border-secondary mb-4">
       <h3 className="text-center">Post Creator</h3>
       <form 
         className="d-flex flex-column px-4 p-sm-none"
@@ -156,4 +147,4 @@ function PostCreator({onClose}: PostCreatorProps) {
   )
 }
 
-export {PostCreator}
+export {PostForm}

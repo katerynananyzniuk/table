@@ -1,6 +1,6 @@
 export const About = () => {
   return (
-    <div className="p-4 mb-4 bg-light rounded-2">
+    <div className="p-4 mb-4 bg-light border rounded-2">
       <h1 className="text-center">Task Description</h1>
       <p>
         You need to write a small application in React + Typescript. The application is

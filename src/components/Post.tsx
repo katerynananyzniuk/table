@@ -8,7 +8,7 @@ export const Post = ({post}: PostProps) => {
   return (
     <tr>
       <td>{post.id}</td>
-      <td>{post.postId}</td>
+      <td className="text-center">{post.postId}</td>
       <td>{post.author}</td>
       <td>{post.title}</td>
       <td>{post.email}</td>

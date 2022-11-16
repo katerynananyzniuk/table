@@ -8,8 +8,8 @@ interface TableProps {
 function Table({posts}: TableProps) {
   return (
     <div className='table-responsive-lg'>
-      <table className="table table-hover">
-        <thead className='text-lowercase text-capitalize'>
+      <table className="table table-hover border rounded bg-light">
+        <thead className='text-lowercase text-capitalize text-center'>
           <tr>
             <th scope="col">#</th>
             <th scope="col">post number</th>
@@ -21,8 +21,8 @@ function Table({posts}: TableProps) {
         </thead>
         <tbody>
           {
-            posts.map((post, index) => {
-              return <Post post={post} key={index} />
+            posts.map(post => {
+              return <Post post={post} key={post.id} />
             })
           }
         </tbody>
